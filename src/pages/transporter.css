@@ -1,0 +1,277 @@
+/* TransporterHome.transpg-css */
+
+/* ===== General Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+  }
+  
+  /* ===== Main Container ===== */
+  .transpg-transporter-home {
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* ===== Header ===== */
+  .transpg-header {
+    background: white;
+    padding: 20px 30px;
+    text-align: center;
+  }
+  
+  .transpg-logo {
+    height: 50px;
+  }
+  
+  /* ===== Hero Section ===== */
+  .transpg-hero {
+    background-image: url('/public/images/transporter/hero.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+    text-align: center;
+  }
+  .transpg-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.55); /* ✅ طبقة شفافة */
+    z-index: 1;
+    border-radius: 0;
+  }
+  .transpg-hero .transpg-overlay {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    padding: 30px 20px;
+  }
+  
+  .transpg-hero h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+  }
+  
+  .transpg-hero p {
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
+  
+  .transpg-hero .transpg-highlight {
+    color: #00c853;
+  }
+  
+  .transpg-shop-button {
+    background-color: #00c853;
+    color: white;
+    padding: 12px 30px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  
+  .transpg-store-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .transpg-store-buttons img {
+    height: 50px;
+  }
+  
+  /* ===== Products Section ===== */
+  .transpg-products-section {
+    padding: 50px 20px;
+    background-color: #fff;
+    text-align: center;
+    height: 700px;
+  }
+  
+  .transpg-products-grid {
+    display: flex;
+    /* grid-template-columns: repeat(2, 1fr); */
+    gap: 20px;
+    /* justify-items: center; */
+    justify-content: center;
+  }
+  
+  .transpg-product-card {
+    background: #fff;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    width: 160px;
+    text-align: center;
+    transition: 0.3s;
+  }
+  
+  .transpg-product-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .transpg-product-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+  }
+  
+  .transpg-product-card .transpg-details {
+    padding: 10px;
+  }
+  
+  .transpg-product-card .transpg-details h3 {
+    font-size: 18px;
+  }
+  
+  .transpg-product-card .transpg-details p {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  /* ===== CTA Section ===== */
+  .transpg-cta-section {
+    background-image: url('/public/images/transporter/road.png');
+    background-size: cover;
+    background-position: center;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .transpg-cta-overlay {
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    padding: 20px 40px;
+    border-radius: 10px;
+  }
+  
+  .transpg-cta-button {
+    background-color: #00c853;
+    color: white;
+    font-size: 22px;
+    padding: 15px 50px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  /* ===== Services Section ===== */
+  .transpg-services-section {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+    height: 500px;
+  }
+  
+  .transpg-services-title {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+  
+  .transpg-services-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    height: 250px;
+  }
+  
+  .transpg-service-card {
+    background: #ffffff;
+    padding: 20px;
+    width: 220px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .transpg-service-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .transpg-icon {
+    font-size: 40px;
+    color: #00c853;
+    margin-bottom: 10px;
+  }
+  
+  .transpg-service-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .transpg-service-card p {
+    font-size: 15px;
+    color: #666;
+  }
+  
+  .transpg-product-card {
+    background: #fff;
+    border-radius: 10px;
+    width: 220px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  .transpg-product-image {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+  }
+  
+  .transpg-details {
+    padding: 15px;
+  }
+  
+  .transpg-product-category {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .transpg-product-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .transpg-shipping-info p {
+    font-size: 14px;
+    color: #444;
+    margin: 4px 0;
+  }
+  
+  .transpg-shipping-info span {
+    font-weight: bold;
+  }
+  
+  .transpg-product-price {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    color: black;
+  }
+  
+  .transpg-map-image {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    margin-top: 10px;
+  }
+  
+  .transpg-rating-stars {
+    font-size: 16px;
+    color: gold;
+    margin: 10px 0;
+  }
+  

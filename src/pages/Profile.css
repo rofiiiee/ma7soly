@@ -1,0 +1,198 @@
+/* src/components/ProfileSidebar/ProfileSidebar.css */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+
+
+
+
+
+
+
+body {
+    background-image: url('/public/images/profile/profile-bg.png'); /* <<<--- !! غيّري المسار للصورة الصحيحة !! */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;    /* لجعل الخلفية ثابتة*/
+    min-height: 100vh;
+    margin: 0px; /* مهم لإزالة أي هوامش افتراضية */
+    font-family: 'Cairo', sans-serif; /* تطبيق الخط العام */
+    direction: rtl; /* لضمان اتجاه الصفحة العام */
+  }
+  
+
+
+
+
+
+
+
+.profile-sidebar {
+  font-family: 'Cairo', sans-serif;
+  direction: rtl;
+  background-color: #e9ecef; /* لون رمادي فاتح للخلفية */
+  color: #343a40; /* لون النص الأساسي */
+  width: 300px; /* عرض الـ Sidebar */
+  height: fit-content; /* الارتفاع يناسب المحتوى */
+  min-height: 500px; /* حد أدنى للارتفاع */
+  border-radius: 24px; /* زوايا دائرية واضحة */
+  padding: 25px 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* ظل أنعم وأوضح */
+  display: flex;
+  flex-direction: column;
+  /* يمكن إضافة position و top/right هنا إذا أردت تثبيته */
+}
+
+/* --- زر التعديل --- */
+.edit-profile-btn {
+  background: none;
+  border: none;
+  color: #6c757d;
+  font-size: 1.3rem;
+  padding: 8px;
+  cursor: pointer;
+  align-self: flex-start; /* يضعه في أقصى اليسار (لأن direction: rtl) */
+  margin-bottom: 5px;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+.edit-profile-btn:hover {
+  color: #343a40;
+}
+
+/* --- معلومات المستخدم --- */
+.user-info {
+    display: flex;
+    flex-direction: column;
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ced4da; /* خط فاصل */
+}
+
+.avatar-container {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-color: #f8f9fa;
+  margin: 0 auto 15px auto; /* توسيط ومسافة سفلية */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: 3px solid #ffffff; /* حافة بيضاء */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* --- تم تغيير اسم الكلاس هنا --- */
+.user-profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* لضمان ملء الصورة للدائرة */
+}
+
+.user-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 5px;
+  color: #212529;
+}
+
+.user-phone {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin: 0;
+}
+
+/* --- قائمة التنقل --- */
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 8px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #495057; /* لون النص الافتراضي */
+  transition: background-color 0.2s ease, color 0.2s ease;
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: right;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  background-color: #dee2e6; /* خلفية عند المرور */
+  color: #212529; /* لون نص أغمق */
+}
+.nav-item:hover .item-chevron {
+    color: #212529; /* تغيير لون السهم */
+}
+
+/* أيقونة العنصر */
+.item-icon-wrapper {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #e8f5e9; /* أخضر فاتح للخلفية */
+  border: 1px solid #a5d6a7; /* حافة خضراء فاتحة */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 12px; /* مسافة بعد الأيقونة */
+  flex-shrink: 0;
+}
+
+.item-icon {
+  color: #34a853; /* لون الأيقونة أخضر */
+  font-size: 1.1rem;
+}
+
+/* نص العنصر */
+.item-text {
+  flex-grow: 1;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* السهم في نهاية العنصر */
+.item-chevron {
+  margin-right: 5px;
+  color: #adb5bd; /* رمادي فاتح */
+  font-size: 0.8rem;
+  transition: color 0.2s ease;
+}
+
+/* تمييز عنصر "حسابي" */
+.nav-item.highlight .item-text {
+    color: #34a853; /* لون أخضر */
+    font-weight: 700; /* Bold */
+}
+
+
+
+
+/* --- Responsive (اختياري) --- */
+@media (max-width: 768px) {
+  .profile-sidebar {
+    width: 250px;
+    padding: 20px 15px;
+    border-radius: 20px;
+  }
+  .avatar-container { width: 90px; height: 90px; }
+  .user-name { font-size: 1.1rem; }
+  .user-phone { font-size: 0.85rem; }
+  .nav-item { padding: 10px 8px; }
+  .item-icon-wrapper { width: 32px; height: 32px; margin-left: 10px;}
+  .item-icon { font-size: 1rem; }
+  .item-text { font-size: 0.9rem; }
+}

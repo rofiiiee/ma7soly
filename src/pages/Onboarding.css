@@ -1,0 +1,102 @@
+/* onboarding.css */
+
+.onboarding-container {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Cairo', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .onboarding-slide {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    transition: all 0.5s ease;
+  }
+  
+  .onboarding-slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45); /* تظليل لجعل النص واضح */
+    z-index: 0;
+  }
+  
+  .onboarding-slide .content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+  }
+  
+  .onboarding-slide h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .onboarding-slide p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+  }
+  
+  .onboarding-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .onboarding-buttons button {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .next-btn {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .skip-btn {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+  
+  .next-btn:hover {
+    background-color: #43a047;
+  }
+  
+  .skip-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  @media (max-width: 768px) {
+    .onboarding-slide h2 {
+      font-size: 28px;
+    }
+  
+    .onboarding-slide p {
+      font-size: 16px;
+    }
+  }
+  

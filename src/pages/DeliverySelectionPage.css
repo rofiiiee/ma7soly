@@ -1,0 +1,109 @@
+.delivery-wrapper {
+  font-family: 'Cairo', sans-serif;
+  direction: rtl;
+  background-color: #f2f4f8;
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner-card {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  width: 90%;
+  max-width: 800px;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.banner-image-contained {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid #ddd;
+}
+
+.delivery-options-page {
+  background-color: #fff;
+  width: 90%;
+  max-width: 800px;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* الخريطة */
+.map-container {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+}
+
+.map-image {
+  width: 100%;
+  display: block;
+}
+
+.map-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 16px;
+  border-radius: 10px;
+}
+
+/* الحقول */
+.form-fields label {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 15px;
+  color: #333;
+}
+
+.form-fields input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1.5px solid #ccc;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* السعر */
+.price-text {
+  text-align: center;
+  font-size: 16px;
+  margin: 20px 0;
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+/* الزر */
+.search-driver-btn {
+  display: block;
+  width: 60%;
+  margin: 0 auto;
+  background-color: #2e7d32;
+  color: white;
+  font-size: 15px;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-driver-btn:hover {
+  background-color: #256628;
+}

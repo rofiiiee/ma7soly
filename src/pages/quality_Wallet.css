@@ -1,0 +1,96 @@
+/* Inspector_Wallet.css */
+/* تصميم شبيه بصفحة السائق مع ألوان متناسقة لفاحص الجودة */
+
+.wallet-page {
+  font-family: 'Cairo', sans-serif;
+  padding: 30px;
+  background-color: #f9fdfb; /* أخضر فاتح هادئ */
+  color: #333;
+}
+
+/* رأس الصفحة */
+.wallet-header h2 {
+  font-size: 28px;
+  color: #2e7d32;  /* أخضر رئيسي */
+}
+
+.wallet-header p {
+  margin-top: 4px;
+  color: #666;
+}
+
+/* الرصيد الحالي */
+.wallet-balance {
+  margin: 20px 0;
+  background-color: #e8f5e9; /* أخضر باهت */
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.wallet-balance .amount {
+  font-size: 26px;
+  color: #1b5e20;  /* أخضر أغمق */
+  font-weight: bold;
+}
+
+/* ملخص الفحوصات */
+.wallet-summary {
+  display: flex;
+  justify-content: space-around;
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+.wallet-summary span {
+  color: #555;
+}
+
+.wallet-summary strong {
+  color: #2e7d32;
+  font-size: 18px;
+}
+
+/* جدول التفاصيل */
+.wallet-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.wallet-table th,
+.wallet-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.wallet-table th {
+  background-color: #f1f8f4;
+  color: #1b5e20;
+  font-weight: 600;
+}
+
+/* زر التحويل */
+.wallet-transfer {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.wallet-transfer button {
+  background-color: #2e7d32;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.wallet-transfer button:hover {
+  background-color: #1b5e20;
+}

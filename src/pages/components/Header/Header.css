@@ -1,0 +1,147 @@
+/* ==== Header Container ==== */
+.hdr-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #f1f8f4; /* أخضر فاتح جدًا */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: 'Cairo', sans-serif;
+}
+
+/* ==== Logo ==== */
+.hdr-logo h1 {
+  font-size: 26px;
+  color: #2e7d32;
+  margin: 0;
+  font-weight: bold;
+}
+
+/* ==== Navigation Links ==== */
+.hdr-nav-links {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.hdr-nav-links a {
+  text-decoration: none;
+  color: #444;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.hdr-nav-links a:hover {
+  color: #2e7d32;
+}
+
+.hdr-active-link {
+  color: #2e7d32;
+  font-weight: bold;
+  border-bottom: 2px solid #2e7d32;
+}
+
+/* ==== Header Left & Right ==== */
+.hdr-left,
+.hdr-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ==== Search Bar ==== */
+.hdr-search-bar {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid #ccc;
+  border-radius: 25px;
+  padding: 5px 12px;
+  background-color: #fff;
+  transition: box-shadow 0.3s;
+}
+
+.hdr-search-bar:hover {
+  box-shadow: 0 0 8px rgba(46, 125, 50, 0.2);
+}
+
+.hdr-search-bar input {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 5px;
+  font-size: 14px;
+  min-width: 140px;
+  font-family: inherit;
+}
+
+.hdr-search-icon {
+  font-size: 18px;
+  color: #4caf50;
+  cursor: pointer;
+}
+
+/* ==== Icons ==== */
+.hdr-icon {
+  font-size: 18px;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.hdr-icon:hover {
+  color: #2e7d32;
+}
+
+/* ==== Account Menu & Dropdown ==== */
+.hdr-account-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.hdr-login {
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 20px;
+  transition: background-color 0.3s;
+}
+
+.hdr-login:hover {
+  background-color: #1b5e20;
+  color: #fff;
+}
+
+.hdr-dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #d1e0d7;
+  border-radius: 8px;
+  min-width: 150px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.hdr-account-menu.show .hdr-dropdown {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hdr-dropdown div {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.hdr-dropdown div:hover {
+  background-color: #f0f0f0;
+}

@@ -1,0 +1,207 @@
+/* ===== Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Cairo', sans-serif;
+}
+
+/* ===== Main Container ===== */
+.quality-inspection {
+  width: 100%;
+  background-color: #f5fef7;
+}
+
+/* ===== Banner Section ===== */
+.banner-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.banner-image {
+  width: 92%;
+  max-width: 1100px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== Grid Container ===== */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+/* ===== Product Card ===== */
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  width: 100%;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* ===== Text Details ===== */
+.product-category {
+  font-size: 14px;
+  color: #777;
+}
+
+.product-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2e7d32;
+  margin-bottom: 10px;
+}
+
+.product-location,
+.product-test {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 5px;
+}
+
+.product-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #1b5e20;
+  margin: 10px 0;
+}
+
+/* ===== Buttons ===== */
+.offer-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.accept-btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.reject-btn {
+  background-color: #f44336;
+  color: white;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* ===== Map Image ===== */
+.map-image {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ===== Rating Stars ===== */
+.rating-stars {
+  font-size: 16px;
+  color: gold;
+  margin-top: 8px;
+}
+
+/* ===== Pagination ===== */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 30px 0;
+}
+
+.page-btn {
+  border: 1px solid #ccc;
+  padding: 8px 15px;
+  border-radius: 5px;
+  background: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.page-btn:hover,
+.page-btn.active {
+  background: #00c853;
+  color: white;
+  border-color: #00c853;
+}
+
+/* ===== Message Popup ===== */
+.popup-message {
+  background-color: #2196f3;
+  color: white;
+  text-align: center;
+  padding: 12px 20px;
+  margin: 15px auto;
+  border-radius: 8px;
+  width: fit-content;
+  animation: fadeInOut 2.5s ease-in-out;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-10px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+
+/* ===== Responsive Fixes ===== */
+@media (max-width: 768px) {
+  .product-card {
+    padding: 10px;
+  }
+
+  .product-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .accept-btn,
+  .reject-btn {
+    font-size: 13px;
+    padding: 5px 10px;
+  }
+}
+.quality-offers h2 {
+  text-align: center;
+  font-size: 2rem;   
+  font-weight: 700;
+  color: #1a7d31;    
+  margin: 24px 0;    
+}

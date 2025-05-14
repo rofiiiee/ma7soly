@@ -1,0 +1,199 @@
+.quality-container {
+    direction: rtl;
+    font-family: 'Cairo', sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .quality-banner {
+    width: 100%;
+    height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  
+  .banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .quality-box, .companies-box, .report-box {
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
+  .submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .submit-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .company-card {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  .company-card.selected {
+    border-color: #4CAF50;
+    background-color: #e8f5e9;
+  }
+  
+  .company-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-left: 15px;
+  }
+  
+  .company-details {
+    flex: 1;
+  }
+  
+  .report-details {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .report-details p {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  @media print {
+    .quality-banner, .submit-btn {
+      display: none;
+    }
+    
+    .report-box {
+      border: none;
+      box-shadow: none;
+    }
+  }
+  /* src/pages/QualityCheck.css */
+  
+  /* ... (جميع التنسيقات الموجودة سابقاً) ... */
+  
+  /* --- تنسيقات المودال المدمج --- */
+  
+  /* نفس تنسيق الخلفية الشفافة */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Slightly darker overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top */
+    direction: rtl; /* Ensure RTL context */
+    /* font-family inherit should work */
+  }
+  
+  /* نفس تنسيق صندوق المودال */
+  .success-modal {
+    background: #fff;
+    padding: 2.5rem 2rem; /* Adjust padding */
+    border-radius: 16px; /* Match image */
+    width: 90%;
+    max-width: 420px; /* Adjust max-width if needed */
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  }
+  
+  /* أيقونة النجاح */
+  .suc-icon {
+    font-size: 55px; /* Adjust size */
+    color: #28a745; /* Green success color */
+    background-color: #e9f7ea; /* Light green background */
+    border-radius: 50%; /* Circular background */
+    padding: 10px; /* Padding around icon */
+    margin-bottom: 1.5rem; /* Space below icon */
+    display: inline-block; /* Needed for padding/margin */
+    border: 3px solid #fff; /* White border to lift it */
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.2); /* Subtle shadow */
+  }
+  
+  .success-modal h2 {
+    font-size: 20px; /* Adjust font size */
+    margin-bottom: 1rem;
+    color: #333;
+    font-weight: 700; /* Bolder */
+  }
+  
+  .success-modal p {
+    font-size: 15px; /* Adjust font size */
+    color: #555;
+    margin-bottom: 2rem; /* More space before button */
+    line-height: 1.7; /* Improve readability */
+  }
+   .success-modal p strong {
+      color: #000; /* Make dynamic parts stand out */
+      font-weight: 600;
+   }
+  
+  
+  /* زر الاستمرار - بتنسيق رمادي مثل الصورة */
+  .modal-continue-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #6c757d; /* Grey color like the image */
+    color: white; /* White text */
+    border: none;
+    border-radius: 8px; /* Match image */
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    /* font-family inherit should work */
+  }
+  
+  .modal-continue-btn:hover {
+    background-color: #5a6268; /* Darker grey on hover */
+  }
+  
+  /* --- نهاية تنسيقات المودال --- */

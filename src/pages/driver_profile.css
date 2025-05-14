@@ -1,0 +1,64 @@
+.profile-page {
+    padding: 20px;
+    background-color: #f4f7fa;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .banner-section {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .banner-image {
+    width: 100%;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 0 0 10px 10px;
+  }
+  
+  .profile-card {
+    background-color: #fff;
+    max-width: 400px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    text-align: center;
+  }
+  
+  .profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+  }
+  
+  .driver-name {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .driver-info p {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  .edit-button {
+    margin-top: 20px;
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .edit-button:hover {
+    background-color: #1976d2;
+  }
+  
