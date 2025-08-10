@@ -1,0 +1,466 @@
+/* src/pages/ProductDetails/ProductDetails.proddetails-css */
+
+/* --- General --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body { /* Apply font globally if not done elsewhere */
+    font-family: 'Cairo', sans-serif;
+}
+
+.proddetails-product-details-page {
+  /* Optional wrapper padding */
+  /* padding: 20px 0; */
+}
+
+/* --- Banner Section --- */
+.proddetails-banner {
+  position: relative;
+  text-align: center;
+  margin-bottom: 40px;
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.proddetails-banner-bg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 230px;
+  object-fit: cover;
+}
+
+.proddetails-banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.proddetails-banner-text {
+  color: #37a13b;
+  font-size: 4rem;
+  font-weight: 800;
+  -webkit-text-stroke: 2px #256527;
+  text-stroke: 2px #256527;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  transform: translateY(10px);
+}
+
+/* --- Main Content Area --- */
+.proddetails-product-main-container {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  padding: 0 50px; /* Initial padding for large screens */
+  max-width: 1200px;
+  margin: 40px auto; /* Add top/bottom margin */
+  direction: ltr; /* Keep LTR for flex 'order' */
+  align-items: flex-start; /* Align columns to the top */
+}
+
+/* --- Sidebar (Filter Section - RIGHT) --- */
+.proddetails-filter-section {
+  flex: 0 0 260px;
+  background-color: #f8f9fa;
+  padding: 18px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  direction: rtl; /* Content is RTL */
+  order: 3; /* Right */
+}
+/* Search Box */
+.proddetails-search-box { display: flex; background-color: #ffe18a; border-radius: 6px; overflow: hidden; border: 1px solid #ffc107; margin-bottom: 20px; }
+.proddetails-search-box input[type="text"] { flex-grow: 1; border: none; padding: 9px 12px; font-size: 14px; background-color: transparent; outline: none; }
+.proddetails-search-box input[type="text"]::placeholder { color: #856404; }
+.proddetails-search-box .proddetails-search-button { background-color: transparent; border: none; padding: 0 10px; cursor: pointer; color: #856404; display: flex; align-items: center; }
+.proddetails-search-box .proddetails-search-button svg { font-size: 16px; }
+/* Quantity Filter */
+.proddetails-quantity-filter { background-color: #ffffff; padding: 15px; border-radius: 8px; border: 1px solid #dee2e6; margin-bottom: 20px; }
+.proddetails-quantity-filter label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 15px; color: #495057; }
+.proddetails-quantity-filter .proddetails-quantity-input-wrapper { display: flex; border: 1px solid #ced4da; border-radius: 6px; margin-bottom: 10px; overflow: hidden; }
+.proddetails-quantity-filter input[type="text"] { width: 100%; padding: 8px 10px; border: none; text-align: center; font-size: 14px; outline: none; font-weight: bold; color: #495057; }
+.proddetails-quantity-filter .proddetails-apply-button { background-color: #28a745; color: white; border: none; padding: 9px 15px; width: 100%; border-radius: 6px; cursor: pointer; font-size: 15px; font-weight: bold; transition: background-color 0.2s ease; }
+.proddetails-quantity-filter .proddetails-apply-button:hover { background-color: #218838; }
+/* Categories */
+.proddetails-categories { background-color: #ffffff; padding: 15px; border-radius: 8px; border: 1px solid #dee2e6; }
+.proddetails-categories h3 { margin: -15px -15px 15px -15px; padding: 10px 15px; font-size: 17px; color: #343a40; border-bottom: 1px solid #dee2e6; }
+.proddetails-categories ul { list-style: none; }
+.proddetails-categories li { padding: 9px 5px; font-size: 15px; color: #495057; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f1f3f5; }
+.proddetails-categories li:last-child { border-bottom: none; }
+.proddetails-categories li.proddetails-active { color: #28a745; font-weight: bold; }
+.proddetails-categories li svg { font-size: 11px; color: #adb5bd; }
+.proddetails-categories li:hover { background-color: #f8f9fa; }
+
+
+/* --- Product Details Section (Middle) --- */
+.proddetails-details-section {
+  flex: 1 1 45%; /* Allow growing/shrinking */
+  direction: rtl; /* Content is RTL */
+  padding: 0 30px; /* Horizontal padding */
+  border-left: 1px solid #e9ecef; /* Separator */
+  border-right: 1px solid #e9ecef; /* Separator */
+  order: 2; /* Middle */
+  min-width: 0; /* Prevent overflow */
+}
+.proddetails-details-section h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 8px; color: #212529; word-break: break-word; }
+.proddetails-details-section .proddetails-price { color: #28a745; font-size: 1.9rem; font-weight: 700; margin-bottom: 25px; }
+.proddetails-description-details { margin-bottom: 25px; border-top: 1px solid #e9ecef; padding-top: 20px; }
+.proddetails-description-details p { font-size: 15px; line-height: 1.75; margin-bottom: 10px; color: #495057; word-break: break-word; }
+.proddetails-description-details p:last-child { margin-bottom: 0; }
+.proddetails-quantity-wishlist-container { display: flex; align-items: center; gap: 25px; margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px solid #e9ecef; }
+.proddetails-quantity-control { display: flex; align-items: center; gap: 15px; }
+.proddetails-quantity-control label { font-weight: bold; font-size: 16px; color: #495057; }
+.proddetails-quantity-control .proddetails-control-buttons { display: flex; align-items: center; border: 1px solid #ced4da; border-radius: 6px; overflow: hidden; }
+.proddetails-quantity-control .proddetails-control-buttons button { background-color: #f1f3f5; border: none; width: 36px; height: 36px; font-size: 20px; font-weight: bold; cursor: pointer; color: #495057; transition: background-color 0.2s ease; }
+.proddetails-quantity-control .proddetails-control-buttons button:hover { background-color: #e9ecef; }
+.proddetails-quantity-control .proddetails-control-buttons input[type="text"] { width: 55px; height: 36px; text-align: center; border: none; border-left: 1px solid #ced4da; border-right: 1px solid #ced4da; font-size: 16px; font-weight: bold; outline: none; padding: 0 5px; color: #495057; }
+.proddetails-wishlist-button { background: #ffffff; border: 1px solid #dee2e6; border-radius: 50%; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; cursor: pointer; color: #adb5bd; transition: all 0.2s ease; }
+.proddetails-wishlist-button:hover { background-color: #f8f9fa; color: #e44d55; border-color: #e44d55; }
+.proddetails-wishlist-button svg { font-size: 19px; }
+.proddetails-action-buttons { display: flex; gap: 15px; margin-bottom: 30px; }
+.proddetails-action-buttons button { flex-grow: 1; padding: 11px 20px; font-size: 15px; font-weight: bold; border-radius: 6px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: opacity 0.2s ease; }
+.proddetails-action-buttons button:hover { opacity: 0.88; }
+.proddetails-action-buttons .proddetails-add-cart-btn { background-color: #28a745; color: white; }
+.proddetails-action-buttons .proddetails-buy-now-btn { background-color: #ffc107; color: #343a40; }
+.proddetails-action-buttons button svg { font-size: 17px; }
+.proddetails-share { display: flex; align-items: center; gap: 10px; color: #6c757d; font-size: 15px; cursor: pointer; transition: color 0.2s ease; }
+.proddetails-share:hover { color: #343a40; }
+.proddetails-share svg { font-size: 18px; }
+
+
+/* --- Image Section (LEFT) --- */
+.proddetails-image-section {
+  flex: 1 1 35%; /* Takes left space */
+  display: flex;
+  justify-content: center; /* Center the image box horizontally */
+  align-items: flex-start; /* Align the image box to the top */
+  padding: 0 15px; /* Padding for the column itself */
+  order: 1; /* Left */
+  min-width: 0; /* Prevent overflow */
+}
+
+/* === Styles applied DIRECTLY to the image tag === */
+.proddetails-product-main-image {
+  display: block;
+  width: 100%;
+  max-width: 400px; /* Limit max width */
+  height: auto;
+  max-height: 420px; /* Max height on large screens */
+  background-color: #ffffff;
+  padding: 20px;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+  transition: max-height 0.3s ease, padding 0.3s ease, max-width 0.3s ease;
+}
+
+
+/* ============================================= */
+/* ========== RESPONSIVE ADJUSTMENTS (BASIC) ==== */
+/* ============================================= */
+/* Basic stacking for smaller screens, can be refined further if needed */
+@media (max-width: 992px) {
+  .proddetails-product-main-container {
+    flex-direction: column; /* Stack columns */
+    padding: 0 20px; /* Adjust padding */
+    gap: 30px; /* Add vertical gap */
+    direction: rtl; /* Reset direction */
+    max-width: 100%; /* Allow full width */
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  /* Reset column-specific properties */
+  .proddetails-filter-section, .proddetails-details-section, .proddetails-image-section {
+    flex-basis: auto; /* Reset basis */
+    width: 100%; /* Take full width */
+    border-left: none;
+    border-right: none;
+    padding: 0; /* Reset column padding */
+    max-width: 100%; /* Ensure sections don't exceed container */
+  }
+
+  /* Define stacking order and specific paddings */
+  .proddetails-image-section { order: 1; margin-bottom: 20px; } /* Image first, add bottom margin */
+  .proddetails-details-section { order: 2; padding: 0 10px; margin-bottom: 20px; } /* Details second, add padding & bottom margin */
+  .proddetails-filter-section { order: 3; padding: 15px; } /* Sidebar last, keep padding */
+
+  /* Adjust image size for smaller screens */
+  .proddetails-product-main-image {
+      max-height: 300px; /* Adjust height */
+      padding: 15px; /* Adjust padding */
+  }
+
+  /* Adjust text sizes */
+  .proddetails-details-section h1 { font-size: 2rem; }
+  .proddetails-details-section .proddetails-price { font-size: 1.7rem; }
+
+  /* Adjust banner */
+  .proddetails-banner { max-width: 95%; }
+  .proddetails-banner-text { font-size: 3rem; -webkit-text-stroke: 1px #256527; text-stroke: 1px #256527; }
+
+  /* Stack elements within details section if needed */
+   @media (max-width: 767px) {
+       .proddetails-quantity-wishlist-container {
+           flex-direction: column;
+           align-items: flex-start;
+           gap: 15px;
+       }
+       .proddetails-action-buttons {
+           flex-direction: column;
+           gap: 10px;
+       }
+       .proddetails-action-buttons button {
+           width: 100%;
+       }
+       .proddetails-product-main-image {
+          max-height: 250px; /* Further reduce height */
+          padding: 10px; /* Further reduce padding */
+       }
+       .proddetails-details-section h1 { font-size: 1.8rem; }
+       .proddetails-details-section .proddetails-price { font-size: 1.5rem; }
+       .proddetails-banner-text { font-size: 2.5rem; }
+   }
+}
+
+
+/* Layout container for the main content */
+.proddetails-product-main-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* Sidebar on the right */
+.proddetails-sidebar-filters {
+  width: 250px;
+  order: 3;
+}
+
+/* Image section on the left */
+.proddetails-image-section {
+  flex: 0 0 300px;
+  order: 1;
+}
+
+.proddetails-product-main-image {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* Product details in the center */
+.proddetails-details-section {
+  flex: 1;
+  order: 2;
+  padding: 0 20px;
+}
+
+.proddetails-sidebar-filters {
+  width: 250px;
+  flex-shrink: 0;
+  direction: rtl;
+  text-align: right;
+}
+
+.proddetails-filter-widget {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  border: 1px solid #dee2e6;
+}
+
+.proddetails-filter-widget h4 {
+  margin: 0 0 10px;
+  font-size: 1.1em;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.proddetails-search-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #ffc107;
+  font-weight: bold;
+}
+
+.proddetails-quantity-inputs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.proddetails-quantity-inputs input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.proddetails-category-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.proddetails-category-list li {
+  margin-bottom: 5px;
+}
+
+.proddetails-category-list li.active-category .proddetails-category-link {
+  background-color: #28a745;
+  color: white;
+  font-weight: bold;
+}
+
+.proddetails-category-list li:not(.active-category) .proddetails-category-arrow {
+  display: none;
+}
+
+.proddetails-category-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 8px 12px;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  text-align: right;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.proddetails-category-link:hover {
+  background-color: #e9ecef;
+}
+
+.proddetails-category-list li.active-category .proddetails-category-link:hover {
+  background-color: #218838;
+}
+
+.proddetails-category-arrow {
+  font-size: 0.8em;
+  color: white;
+  margin-left: 5px;
+}
+
+.proddetails-control-buttons {
+  /* صف أفقي بعرض ثابت ويملى المحتوى جوّاه */
+  display: inline-flex;
+  align-items: stretch;
+  width: 220px;               /* اضبطها لو عايز أصغر/أكبر */
+  border: 1px solid #ced4da;
+  border-radius: 10px;
+  background: #fff;
+  overflow: hidden;           /* يمنع أي بروز */
+}
+
+/* + و – */
+.proddetails-control-buttons button {
+  flex: 0 0 70px;             /* نفس عرض الخانة الوسطى تقريبًا */
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: #495057;
+  background: #f1f3f5;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.proddetails-control-buttons button:hover {
+  background-color: #e2e6ea;
+}
+/* ======== Quantity Control – seamless unified look ======== */
+.proddetails-quantity-control .proddetails-control-buttons{
+  /* نخلّيها تتمد بالكامل داخل الحاوية اللي حوالينها */
+  width: 100%;           /* لو عايز مقاس ثابت شيله وحط القيمة */
+  height: 50px;          /* نفس ارتفاع الزرّين */
+  border: none;          /* نشيل الخط الخارجي */
+  border-radius: 12px;   /* حافة موحَّدة للمجموعة كلها */
+  overflow: hidden;      /* عشان الانحناء يبان صح */
+  display: flex;
+}
+
+.proddetails-quantity-control .proddetails-control-buttons > *{
+  flex: 1 0 0;           /* كل قطعة تملأ ثُلث الحاوية بالظبط */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 700;
+  /* نخلي الخط واللون واحد للتناسق */
+}
+
+.proddetails-quantity-control .proddetails-control-buttons button{
+  cursor: pointer;
+  user-select: none;
+  color: #fff;
+  background: #28a745;     /* الأخضر بتاع الموقع */
+  transition: background-color .15s ease;
+  border: none;            /* نشيل أي بوردر وراثي */
+}
+.proddetails-quantity-control .proddetails-control-buttons button:hover{
+  background: #218838;
+}
+
+
+/* خانة الرقم: من غير أي حدود جانبية ولا لون مختلف */
+.proddetails-quantity-control .proddetails-control-buttons input[type="text"]{
+  all: unset;                 /* نمسح وراثة الـ input لسهولة الضبط */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #212529;
+  background: #fff;
+}
+
+/* موبايل – نصغّر ارتفاع وعرض الحاوية بس يفضّل الشكل نفسه */
+@media(max-width:767px){
+  .proddetails-quantity-control .proddetails-control-buttons{
+    height: 44px;
+  }
+  .proddetails-quantity-control .proddetails-control-buttons > *{
+    font-size: 20px;
+  }
+}
+/* ===== Wish‑List Heart Fix ===== */
+.proddetails-wishlist-button svg{
+  width: 22px;          /* مقاس واضح داخل زر 40×40 */
+  height: 22px;
+  display: block;       /* يمنع انكماشه مع الـline‑height */
+  fill: currentColor;   /* يورث لون الزر (grey / red on hover) */
+  pointer-events: none; /* ما يتأثرش بالضغط */
+}
+.proddetails-wishlist-button{
+  color:#adb5bd;        /* رمادى افتراضى */
+}
+.proddetails-wishlist-button:hover{
+  color:#e44d55;        /* أحمر عند الـhover */
+}

@@ -1,0 +1,776 @@
+/* --- General Styles (if not already present) --- */
+body {
+    direction: rtl; /* Ensures RTL layout */
+    font-family: 'Cairo', sans-serif; /* Example font */
+    background-color: #f0f2f5; /* Background similar to image */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .notifications-page-container {
+    max-width: 800px; /* Match max-width used elsewhere */
+    margin: 20px auto; /* Add some margin */
+    padding: 0 15px;
+  }
+  
+  /* --- Notification Banner Styles (كما هي غالباً) --- */
+  .notification-banner {
+    /* Existing styles */
+    font-family: 'Cairo', sans-serif;
+    padding: 1rem 0; /* Adjust padding if needed */
+    display: flex; /* Kept for centering the overlay */
+    justify-content: center; /* Center the overlay horizontally */
+    background-color: transparent; /* Make banner background transparent if page has bg color */
+    margin-bottom: 2rem; /* Space between banner and notifications */
+  }
+  
+  .banner-overlay {
+    width: 100%;
+    /* max-width: 800px; /* Removed if container handles width */
+    height: 180px;
+    border-radius: 12px;
+    overflow: hidden;
+    /* margin-bottom: 2rem; /* Moved margin to banner container */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative; /* Needed if you add text/logo overlay inside */
+  }
+  
+  .notifications-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* border-radius: 12px; /* Inherited from overlay */
+  }
+  
+  /* --- Notification List/Box Styles (مُعدل) --- */
+  
+  /* Optional: Container to center the notification groups if needed */
+  .notifications-list-container {
+      width: 100%;
+      /* max-width: 800px; /* Set max-width here if needed */
+      /* margin: 0 auto; /* Center the container */
+  }
+  
+  .notification-group {
+    margin-bottom: 30px; /* Increased space between groups */
+  }
+  
+  .notification-date {
+    font-size: 16px;
+    color: #555; /* Slightly darker grey */
+    margin-bottom: 15px;
+    text-align: center; /* --- تمت الإضافة: لتوسيط التاريخ --- */
+    font-weight: normal;
+  }
+  
+  .notification-card {
+    background-color: #ffffff;
+    border-radius: 8px; /* Matching image corner radius */
+    padding: 15px 20px; /* Adjust padding */
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; /* Keep this */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); /* Softer shadow */
+    transition: box-shadow 0.3s ease;
+    position: relative; /* Needed for absolute positioning if any */
+  }
+  
+  .notification-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* --- تمت الإضافة: تنسيقات الأيقونات --- */
+  .notification-icon {
+    font-size: 24px; /* حجم الأيقونة */
+    margin-left: 15px; /* مسافة بين الأيقونة والمحتوى (تظهر يمين الأيقونة في RTL) */
+    flex-shrink: 0; /* تمنع الأيقونة من التقلص */
+  }
+  
+  .doc-icon {
+    color: #4CAF50; /* لون أخضر لأيقونة الملف (مطابق للصورة) */
+    /* border: 1px solid #4CAF50; /* Optional: if you want the border */
+    /* padding: 2px; /* Optional: padding inside border */
+    /* border-radius: 3px; /* Optional: slight rounding */
+  }
+  
+  .check-icon {
+    color: #4CAF50; /* لون أخضر لأيقونة الصح */
+  }
+  
+  .notification-delete-icon {
+    font-size: 18px;
+    color: #E57373; /* لون أحمر فاتح قليلاً مثل الصورة */
+    cursor: pointer;
+    margin-right: 10px; /* مسافة على يسار الأيقونة (تظهر يسارها في RTL) */
+    flex-shrink: 0; /* تمنع الأيقونة من التقلص */
+    padding: 5px; /* Add padding to make it easier to click */
+    border-radius: 50%; /* Make the background circular on hover */
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  
+  .notification-delete-icon:hover {
+    background-color: #ffebee; /* لون خلفية خفيف عند المرور */
+    color: #d32f2f; /* لون أحمر أغمق عند المرور */
+  }
+  /* --- نهاية تنسيقات الأيقونات --- */
+  
+  
+  .notification-content {
+    flex-grow: 1;
+    text-align: right; /* ضمان محاذاة النص لليمين */
+  }
+  
+  .notification-title {
+    font-size: 16px;
+    font-weight: 600; /* Bold */
+    color: #333;
+    margin: 0 0 5px 0; /* مسافة أسفل العنوان */
+  }
+  
+  .notification-details {
+    font-size: 13px;
+    color: #888; /* لون رمادي أفتح قليلاً */
+    cursor: pointer;
+  }
+  
+  .notification-details:hover {
+    color: #333;
+    text-decoration: underline;
+  }
+  
+
+/* --- General Styles (if not already present) --- */
+body {
+    direction: rtl; /* Ensures RTL layout */
+    font-family: 'Cairo', sans-serif; /* Example font */
+    background-color: #f0f2f5; /* Background similar to image */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .notifications-page-container {
+    max-width: 800px; /* Match max-width used elsewhere */
+    margin: 20px auto; /* Add some margin */
+    padding: 0 15px;
+  }
+  
+  /* --- Notification Banner Styles (كما هي غالباً) --- */
+  .notification-banner {
+    /* Existing styles */
+    font-family: 'Cairo', sans-serif;
+    padding: 1rem 0; /* Adjust padding if needed */
+    display: flex; /* Kept for centering the overlay */
+    justify-content: center; /* Center the overlay horizontally */
+    background-color: transparent; /* Make banner background transparent if page has bg color */
+    margin-bottom: 2rem; /* Space between banner and notifications */
+  }
+  
+  .banner-overlay {
+    width: 100%;
+    /* max-width: 800px; /* Removed if container handles width */
+    height: 180px;
+    border-radius: 12px;
+    overflow: hidden;
+    /* margin-bottom: 2rem; /* Moved margin to banner container */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative; /* Needed if you add text/logo overlay inside */
+  }
+  
+  .notifications-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* border-radius: 12px; /* Inherited from overlay */
+  }
+  
+  /* --- Notification List/Box Styles (مُعدل) --- */
+  
+  /* Optional: Container to center the notification groups if needed */
+  .notifications-list-container {
+      width: 100%;
+      /* max-width: 800px; /* Set max-width here if needed */
+      /* margin: 0 auto; /* Center the container */
+  }
+  
+  .notification-group {
+    margin-bottom: 30px; /* Increased space between groups */
+  }
+  
+  .notification-date {
+    font-size: 16px;
+    color: #555; /* Slightly darker grey */
+    margin-bottom: 15px;
+    text-align: center; /* --- تمت الإضافة: لتوسيط التاريخ --- */
+    font-weight: normal;
+  }
+  
+  .notification-card {
+    background-color: #ffffff;
+    border-radius: 8px; /* Matching image corner radius */
+    padding: 15px 20px; /* Adjust padding */
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; /* Keep this */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); /* Softer shadow */
+    transition: box-shadow 0.3s ease;
+    position: relative; /* Needed for absolute positioning if any */
+  }
+  
+  .notification-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* --- تمت الإضافة: تنسيقات الأيقونات --- */
+  .notification-icon {
+    font-size: 24px; /* حجم الأيقونة */
+    margin-left: 15px; /* مسافة بين الأيقونة والمحتوى (تظهر يمين الأيقونة في RTL) */
+    flex-shrink: 0; /* تمنع الأيقونة من التقلص */
+  }
+  
+  .doc-icon {
+    color: #4CAF50; /* لون أخضر لأيقونة الملف (مطابق للصورة) */
+    /* border: 1px solid #4CAF50; /* Optional: if you want the border */
+    /* padding: 2px; /* Optional: padding inside border */
+    /* border-radius: 3px; /* Optional: slight rounding */
+  }
+  
+  .check-icon {
+    color: #4CAF50; /* لون أخضر لأيقونة الصح */
+  }
+  
+  .notification-delete-icon {
+    font-size: 18px;
+    color: #E57373; /* لون أحمر فاتح قليلاً مثل الصورة */
+    cursor: pointer;
+    margin-right: 10px; /* مسافة على يسار الأيقونة (تظهر يسارها في RTL) */
+    flex-shrink: 0; /* تمنع الأيقونة من التقلص */
+    padding: 5px; /* Add padding to make it easier to click */
+    border-radius: 50%; /* Make the background circular on hover */
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  
+  .notification-delete-icon:hover {
+    background-color: #ffebee; /* لون خلفية خفيف عند المرور */
+    color: #d32f2f; /* لون أحمر أغمق عند المرور */
+  }
+  /* --- نهاية تنسيقات الأيقونات --- */
+  
+  
+  .notification-content {
+    flex-grow: 1;
+    text-align: right; /* ضمان محاذاة النص لليمين */
+  }
+  
+  .notification-title {
+    font-size: 16px;
+    font-weight: 600; /* Bold */
+    color: #333;
+    margin: 0 0 5px 0; /* مسافة أسفل العنوان */
+  }
+  
+  .notification-details {
+    font-size: 13px;
+    color: #888; /* لون رمادي أفتح قليلاً */
+    cursor: pointer;
+  }
+  
+  .notification-details:hover {
+    color: #333;
+    text-decoration: underline;
+  }
+  /* --- أضف أو عدل هذه التنسيقات --- */
+
+/* --- تنسيقات عرض التفاصيل --- */
+.notification-details-view {
+    padding: 15px;
+    position: relative; /* Needed for absolute positioning if any */
+  }
+  
+  /* سهم الرجوع */
+  .back-arrow {
+    font-size: 22px;
+    color: #555;
+    cursor: pointer;
+    margin-bottom: 15px;
+    display: block; /*جعله block ل يأخذ السطر */
+    width: fit-content; /* اجعل العرض مناسب للمحتوى */
+    /* يمكنك إضافة padding لسهولة الضغط */
+     padding: 5px;
+     transition: color 0.2s ease;
+  }
+  .back-arrow:hover {
+      color: #000;
+  }
+  
+  /* تنسيق خاص لرأس الإشعار داخل صفحة التفاصيل */
+  .single-notification-header .notification-date {
+      text-align: center; /* أو right حسب التصميم */
+  }
+  .notification-details-header {
+      box-shadow: none; /* إزالة الظل إذا كان مكرر */
+      background-color: #fff; /* تأكيد الخلفية */
+      border-radius: 8px; /* تأكيد الحواف */
+       margin-bottom: 20px; /* مسافة قبل صندوق التفاصيل */
+  }
+  /* جعل رابط التفاصيل باهتاً في الهيدر الخاص بصفحة التفاصيل */
+  .notification-details-header .notification-details.dimmed {
+      color: #bbb; /* لون باهت */
+      cursor: default;
+      text-decoration: none;
+  }
+  
+  
+  /* صندوق معلومات التفاصيل */
+  .details-info-box {
+    background-color: #f8f9fa; /* لون خلفية الصندوق الرمادي الفاتح */
+    border: 1px solid #e9ecef; /* حدود خفيفة */
+    border-radius: 8px;
+    padding: 0; /* إزالة البادينج الرئيسي للسماح بتقسيم الأعمدة */
+    display: flex; /* --- استخدام Flexbox للتقسيم --- */
+    overflow: hidden; /* لضمان تطبيق border-radius على الأعمدة الداخلية */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  
+  /* العمود الأيمن (التفاصيل) */
+  .info-details {
+    flex-grow: 1; /* يأخذ المساحة المتبقية */
+    padding: 20px;
+    text-align: right;
+  }
+  .info-details p {
+    margin: 0 0 12px 0; /* مسافات بين الأسطر */
+    font-size: 14px;
+    color: #333;
+    line-height: 1.6;
+  }
+  .info-details p strong {
+    color: #000;
+    margin-left: 8px; /* مسافة بين العنوان والقيمة */
+    display: inline-block; /* لضمان تطبيق الهامش */
+  }
+  
+  
+  /* العمود الأيسر (ملخص الطلب) */
+  .info-summary {
+    flex-basis: 150px; /* عرض ثابت للعمود الأيسر (يمكن تعديله) */
+    flex-shrink: 0; /* منعه من التقلص */
+    background-color: #e9ecef; /* لون خلفية أغمق قليلاً */
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* لترتيب العناصر عمودياً */
+    align-items: center; /* توسيط المحتوى أفقياً */
+    justify-content: center; /* توسيط المحتوى رأسياً */
+    text-align: center;
+    border-right: 1px solid #dee2e6; /* خط فاصل */
+  }
+  
+  .info-summary h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #4CAF50; /* اللون الأخضر */
+    line-height: 1.4; /* لضبط المسافة بين السطرين */
+  }
+  
+  
+  /* --- تعديلات إضافية محتملة --- */
+  
+  /* قد تحتاج لتعديل padding أو margin للحاوية الرئيسية */
+  .notifications-page-container {
+    /* padding: 0 15px; /* تأكد من وجود padding مناسب */
+  }
+  
+  /* تعديل بسيط على كرت الإشعار العادي ليكون واضحاً أنه قابل للضغط */
+  .notification-card .notification-details {
+      color: #007bff; /* لون أزرق أو لون الرابط الأساسي لديك */
+  }
+  .notification-card .notification-details:hover {
+      color: #0056b3;
+      text-decoration: underline;
+  }
+  
+  
+  /* التأكد من تنسيق التاريخ في القائمة الرئيسية */
+  .notifications-list-container .notification-date {
+      text-align: center;
+      margin-bottom: 15px;
+      color: #555;
+  }
+
+
+
+
+/* ملف: src/pages/QualityCheck.css */
+
+/* ✅ الحاوية العامة */
+.quality-container {
+  direction: rtl;
+  font-family: 'Cairo', sans-serif;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+/* ✅ البانر */
+.quality-banner {
+  width: 100%;
+  max-width: 800px;
+  height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+
+/* ✅ الصندوق الأبيض */
+.quality-box {
+  width: 100%;
+  max-width: 500px;
+  background-color: #f4faf7;
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  border: 1px solid #d9e9e2;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+/* ✅ الخريطة */
+.map-container-real {
+  width: 100%;
+  height: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+/* ✅ الحقول */
+.form-group {
+  width: 100%;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  text-align: right;
+  box-sizing: border-box;
+}
+
+/* ✅ السعر */
+.price-section {
+  margin: 15px 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* ✅ زر الإرسال */
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #388e3c;
+}
+
+
+.companies-box {
+  width: 100%;
+  max-width: 600px;
+  background-color: #f4faf7;
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  border: 1px solid #d9e9e2;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.choose-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+.company-card {
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.company-card:hover {
+  background-color: #e8f5e9;
+}
+
+.company-card.selected {
+  border: 2px solid #4CAF50;
+  background-color: #e8f5e9;
+}
+
+.company-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-left: 1rem;
+}
+
+.company-details {
+  flex: 1;
+}
+
+.company-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.company-price {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+.company-date {
+  color: #777;
+  font-size: 13px;
+}
+
+.company-logo-big {
+  width: 100px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.confirm-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.accept-btn, .reject-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.accept-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.reject-btn {
+  background-color: #f44336;
+  color: white;
+}
+/* ✅ مودال النجاح */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* خلفية شفافة مظلمة */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.success-modal {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.suc-icon {
+  font-size: 60px;
+  color: #4CAF50;
+  margin-bottom: 3rem;
+  margin-right: 0rem;
+}
+
+.success-modal h2 {
+  font-size: 22px;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.success-modal p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.continue-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.continue-btn:hover {
+  background-color: #bbb;
+}
+/* تنسيق الـ Notification Box */
+.notification-box {
+  width: 100%;
+  max-width: 500px;
+  background-color: #f4faf7;
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  border: 1px solid #d9e9e2;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.notification-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notification-icon {
+  font-size: 40px;
+  color: green;
+}
+
+.notification-content h3 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.notification-content p {
+  font-size: 16px;
+  color: #777;
+}
+
+.continue-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 1rem;
+}
+
+.continue-btn:hover {
+  background-color: #388e3c;
+}
+/* تنسيق الـ Notification Box */
+.notification-box {
+  width: 100%;
+  max-width: 500px;
+  background-color: #f4faf7;
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  border: 1px solid #d9e9e2;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.notification-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notification-icon {
+  font-size: 40px;
+  color: green;
+}
+
+.notification-content h3 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.notification-content p {
+  font-size: 16px;
+  color: #777;
+}
+
+.continue-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 1rem;
+}
+
+.continue-btn:hover {
+  background-color: #388e3c;
+}
+
+/* --- ✅ تعديل: تنسيق حقل الإدخال أثناء التحميل (اختياري) --- */
+.input-field.loading {
+  font-style: italic;
+  color: #888;
+}
+/* --- ✅ تعديل: تنسيق الزر المعطل --- */
+.submit-btn:disabled {
+  background-color: #cccccc; /* لون رمادي */
+  cursor: not-allowed; /* تغيير شكل المؤشر */
+  opacity: 0.7; /* تقليل الشفافية قليلاً */
+}

@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Cairo', sans-serif;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  background-color: #fff;
+}
+
+
+.login-container {
+  display: flex;
+  flex-direction: row-reverse;
+  min-height: 100vh;
+  height: auto; /* ✅ خليها حسب المحتوى */
+}
+
+.login-form {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 450px;
+  background-color: #fff;
+  border: 1px solid #c8e6c9;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.leaf-img {
+  width: 120px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+}
+
+.welcome {
+  font-size: 22px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #444;
+}
+
+/*.input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: right;
+}*/
+.input {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 13px;
+  text-align: right;
+  height: 30px;
+}
+
+
+.input-error {
+  border-color: #f44336;
+  background-color: #fffafa;
+}
+
+.password-box {
+  position: relative;
+}
+
+.eye-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.forgot-password {
+  display: block;
+  text-align: right;
+  margin-bottom: 1rem;
+  color: #388e3c;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-btn:hover {
+  background-color: #388e3c;
+}
+
+.no-account {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 14px;
+}
+
+.new-account {
+  color: #388e3c;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ✅ الصورة على اليمين */
+/*.login-image {
+  width: 35%;
+  max-width: 500px;
+  height: 100vh;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  background-color: #f0fff4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}*/
+.login-image {
+  width: 35%;
+  max-width: 500px;
+  background-color: #f0fff4;
+  display: flex;
+  align-items: stretch; /* ✅ تخلي الصورة تتمدد */
+  justify-content: center;
+  position: relative;
+}
+
+.bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+
+/* ✅ تأثير overlay لو عايزة */
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 100, 0, 0.3); /* لون أخضر شفاف */
+  top: 0;
+  left: 0;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+  .login-image {
+    display: none;
+  }
+  .leaf-img {
+    width: 70px;
+    top: -20px;
+    left: -20px;
+  }
+}

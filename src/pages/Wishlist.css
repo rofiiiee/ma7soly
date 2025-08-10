@@ -1,0 +1,273 @@
+/* src/pages/Wishlist/Wishlist.css */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+
+/* --- Global Page Styles --- */
+.wishlist-page {
+  font-family: 'Cairo', sans-serif;
+  direction: rtl;
+  background-color: #f0f3f5; /* لون خلفية الصفحة الرمادي */
+  padding: 25px 0 50px 0; /* بادينج للصفحة */
+  min-height: calc(100vh - 70px); /* افتراض ارتفاع الهيدر 70px */
+}
+
+/* --- Banner Section --- */
+.wishlist-banner {
+  position: relative;
+  text-align: center;
+  margin-bottom: 35px; /* مسافة تحت البانر */
+  border-radius: 16px;
+  overflow: hidden;
+  max-width: 1050px; /* عرض البانر */
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.banner-bg {
+  display: block;
+  width: 100%;
+  height: 270px;
+  /* max-height: 180px; ارتفاع البانر */
+  object-fit: cover;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.55);
+}
+
+.banner-text {
+  color: #ffffff;
+  font-size: 2.8rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+/* التأثير البيضاوي الأخضر */
+.text-highlight {
+  position: relative;
+  display: inline-block;
+}
+.text-highlight::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-5deg);
+  width: 118%;
+  height: 80%;
+  border: 3px solid #34a853; /* أخضر */
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.95;
+}
+
+/* --- Main Content Area --- */
+.wishlist-content {
+  background-color: #ffffff;
+  border-radius: 18px;
+  padding: 30px; /* <<<--- تعديل البادينج */
+  max-width: 1150px; /* <<<--- أعرض قليلاً */
+  margin: 0 auto;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ورقة الشجر الزخرفية */
+.wishlist-content::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    right: -15px;
+    width: 160px;
+    height: 160px;
+    background-image: url('/public/images/leaf.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.75;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 أعمدة */
+  gap: 25px; /* <<<--- تقليل المسافة قليلاً */
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Product Card Styles --- */
+.product-card {
+  background-color: #ffffff;
+  border-radius: 14px; /* <<<--- تعديل دائرية الزوايا */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.09); /* ظل الكارت */
+  overflow: hidden; /* مهم لزوايا الصورة */
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  /* تمت إزالة الحافة الافتراضية، سنضيفها للـ highlighted فقط */
+  border: 2px solid transparent; /* حافة شفافة للحفاظ على المساحة */
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* الكارت المحدد بالإطار الأزرق */
+.product-card.highlighted {
+    border-color: #87CEFA; /* <<<--- لون أزرق فاتح (LightSkyBlue) */
+    box-shadow: 0 6px 16px rgba(135, 206, 250, 0.3); /* ظل أزرق خفيف */
+}
+
+.product-image {
+  width: 100%;
+  height: 150px; /* <<<--- تقليل ارتفاع الصورة قليلاً */
+  object-fit: cover;
+  display: block;
+  /* لتدوير الزوايا العلوية فقط للصورة */
+  border-radius: 12px 12px 0 0; /* <<<--- نفس قيمة card radius تقريباً */
+}
+
+.product-info {
+  padding: 12px 15px; /* <<<--- تعديل البادينج */
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: right;
+}
+
+.product-name-category {
+  display: flex;
+  justify-content: space-between; /* لتوزيع الاسم والفئة */
+  align-items: baseline; /* محاذاة خط الأساس */
+  margin-bottom: 6px;
+}
+
+.product-name {
+  font-size: 1.05rem;
+  font-weight: 700; /* Bold */
+  color: #333; /* لون أغمق قليلاً */
+  margin: 0;
+}
+
+.product-category {
+  font-size: 0.8rem;
+  color: #777; /* لون رمادي */
+  /* إزالة الخلفية والبادينج */
+  /* background-color: #f4f6f8; */
+  /* padding: 3px 8px; */
+  /* border-radius: 6px; */
+}
+
+.product-price {
+  font-size: 0.95rem; /* حجم مناسب */
+  font-weight: 600;
+  color: #444; /* أغمق من الفئة */
+  margin: 0 0 10px 0;
+}
+
+.product-rating {
+  margin-top: auto; /* لدفع النجوم للأسفل */
+  display: flex;
+  justify-content: flex-end; /* لليمين */
+  direction: ltr; /* لترتيب النجوم صحيح */
+  margin-bottom: 12px; /* <<<--- مسافة فوق الزر */
+}
+
+.star {
+  font-size: 1rem; /* <<<--- حجم النجمة */
+  margin: 0 1px;
+}
+
+.star.filled {
+  color: #ffc107; /* <<<--- لون أصفر للنجوم (مثل الصورة) */
+}
+
+.star.empty {
+  color: #e0e0e0; /* رمادي فاتح */
+}
+
+.view-more-button {
+  background-color: #28a745; /* <<<--- أخضر مطابق للبانر */
+  color: white; /* <<<--- نص أبيض */
+  border: none; /* <<<--- بدون حافة */
+  padding: 7px 18px; /* <<<--- بادينج الزر */
+  border-radius: 20px; /* <<<--- شكل بيضاوي */
+  font-size: 0.8rem; /* حجم الخط */
+  font-weight: 600; /* <<<--- تعديل الـ font-weight */
+  cursor: pointer;
+  text-align: center;
+  margin: 5px auto 12px auto; /* <<<--- تعديل المسافات والتوسيط */
+  display: block;
+  width: fit-content;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.view-more-button:hover {
+  background-color: #218838; /* أخضر أغمق عند المرور */
+  box-shadow: 0 2px 6px rgba(40, 167, 69, 0.3);
+}
+
+.empty-wishlist-message {
+    text-align: center;
+    padding: 60px;
+    font-size: 1.2rem;
+    color: #7f8c8d;
+}
+
+/* --- Responsive Adjustments --- */
+
+@media (max-width: 1200px) { /* يتناسب مع max-width للمحتوى */
+    .wishlist-content { max-width: 95%; }
+}
+
+@media (max-width: 992px) {
+  .wishlist-page { padding-top: 20px; }
+  .wishlist-banner { max-width: 90%; margin-bottom: 30px;}
+  .banner-text { font-size: 2.4rem; }
+  .text-highlight::before { border-width: 2px; }
+  .wishlist-content { padding: 25px; }
+  .products-grid {
+      grid-template-columns: repeat(2, 1fr); /* عمودين */
+      gap: 20px; /* تقليل المسافة */
+  }
+  .wishlist-content::after { width: 130px; height: 130px; bottom: -15px; right: -15px; }
+}
+
+@media (max-width: 768px) {
+    .banner-text { font-size: 2.1rem; }
+    .wishlist-content { padding: 20px; border-radius: 15px; }
+    .products-grid { gap: 18px; }
+    .product-image { height: 135px; } /* تعديل ارتفاع الصورة */
+    .product-name { font-size: 1rem; }
+    .product-price { font-size: 0.9rem; }
+    .star { font-size: 0.9rem; }
+    .view-more-button { padding: 6px 16px; font-size: 0.75rem;}
+    .wishlist-content::after { width: 110px; height: 110px; bottom: -10px; right: -10px; }
+}
+
+@media (max-width: 576px) {
+    .wishlist-page { padding-top: 15px; }
+    .wishlist-banner { max-width: 95%; margin-bottom: 25px; border-radius: 12px;}
+    .banner-text { font-size: 1.9rem; }
+    .text-highlight::before { width: 120%; height: 75%; }
+    .wishlist-content { padding: 15px; }
+    .products-grid {
+        grid-template-columns: 1fr; /* عمود واحد */
+        gap: 15px;
+    }
+    .product-image { height: 160px; /* يمكن أن تكون أطول */ }
+    .view-more-button { margin-bottom: 10px; }
+    .wishlist-content::after { display: none; /* إخفاء الورقة */ }
+}

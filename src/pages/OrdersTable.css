@@ -1,0 +1,64 @@
+.orders-table-container {
+    background-color: #ffffffee;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    overflow-x: auto;
+  }
+  
+  .orders-title {
+    text-align: right;
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    direction: rtl;
+  }
+  
+  .orders-table th,
+  .orders-table td {
+    padding: 14px 16px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 15px;
+  }
+  
+  .orders-table th {
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  .orders-table tbody tr:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .status-badge {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: white;
+    display: inline-block;
+    min-width: 80px;
+  }
+  
+  .status-badge.Processing {
+    background-color: #ff9800;
+  }
+  
+  .status-badge.تم-التوصيل {
+    background-color: #4caf50;
+  }
+  
+  .status-badge.مكتمل {
+    background-color: #2196f3;
+  }
+  
+  .status-badge.يُعالج {
+    background-color: #f44336;
+  }
+  

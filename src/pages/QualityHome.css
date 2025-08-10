@@ -1,0 +1,208 @@
+/* ===== General Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Cairo', sans-serif;
+}
+
+/* ===== Main Container ===== */
+.quality-home {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  background-image: url('/public/images/qualityhero.png'); 
+  background-size: cover;
+  background-position: center;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+  text-align: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+}
+
+.hero .overlay {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 30px 20px;
+}
+
+.hero h1 {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+.hero .highlight {
+  color: #4CAF50; /* ✅ أخضر */
+}
+
+.shop-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 30px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+/* ===== Products Section ===== */
+.products-section {
+  padding: 50px 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.products-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 10px;
+  width: 220px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-image {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+}
+
+.details {
+  padding: 15px;
+}
+
+.product-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.details p {
+  font-size: 14px;
+  color: #555;
+  margin: 4px 0;
+}
+
+/* ===== Price Box ===== */
+.price-box {
+  background-color: #E8F5E9;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #388E3C;
+}
+
+/* ===== CTA Section ===== */
+.cta-section {
+  background-image: url('/public/images/transporter/hero.png');
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-overlay {
+  padding: 20px 40px;
+  border-radius: 10px;
+}
+
+.cta-button {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 22px;
+  padding: 15px 50px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* ===== Services Section ===== */
+.services-section {
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.services-title {
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+.services-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.service-card {
+  background: #ffffff;
+  padding: 20px;
+  width: 220px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.icon {
+  font-size: 40px;
+  color: #4CAF50;
+  margin-bottom: 10px;
+}
+
+.service-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  font-size: 15px;
+  color: #666;
+}
+
+/* ===== Stars ===== */
+.rating-stars {
+  font-size: 16px;
+  color: gold;
+  margin-bottom: 10px;
+}

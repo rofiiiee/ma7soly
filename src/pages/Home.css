@@ -1,0 +1,448 @@
+
+
+
+/* ----- Global Styles & Reset ----- */
+@import url('https://fonts.homepg-googleapis.homepg-com/css2?family=Cairo:wght@400;500;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Cairo', sans-serif;
+  direction: rtl;
+  background-color: #f8f9fa; /* لون خلفية الصفحة العام */
+  box-sizing: border-box;
+  overflow-x: hidden; /* لمنع السكرول الأفقي إذا حدث */
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; }
+.homepg-container { /* Add global container styles if needed */ }
+
+/* ----- Header Styles ----- */
+.homepg-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 30px; background-color: #ffffff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); height: 70px; color: #333; }
+.homepg-header-left { display: flex; align-items: center; gap: 30px; }
+.homepg-logo { height: 38px; }
+.homepg-nav { display: flex; align-items: center; }
+.homepg-nav a { margin-left: 25px; color: #555; font-size: 16px; font-weight: 500; transition: color 0.3s ease; }
+.homepg-nav a:hover, .homepg-nav a.homepg-active-link { color: #4CAF50; }
+.homepg-nav a.homepg-active-link { font-weight: 700; }
+.homepg-header-right { display: flex; align-items: center; gap: 20px; }
+.homepg-add-button { background-color: #4CAF50; color: white; border: none; padding: 9px 18px; border-radius: 20px; font-size: 14px; font-weight: bold; transition: background-color 0.3s ease; }
+.homepg-add-button:hover { background-color: #45a049; }
+.homepg-search-box { position: relative; display: flex; align-items: center; border: 1px solid #ddd; border-radius: 20px; padding: 0 10px 0 5px; }
+.homepg-search-box input { border: none; outline: none; padding: 9px 10px 9px 35px; font-size: 14px; background: transparent; border-radius: 20px; width: 220px; }
+.homepg-search-box input::placeholder { color: #aaa; }
+.homepg-search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #777; font-size: 16px; pointer-events: none; }
+.homepg-login { color: #333; font-size: 15px; font-weight: 500; transition: color 0.3s ease; }
+.homepg-login:hover { color: #4CAF50; }
+.homepg-flag { height: 20px; width: auto; cursor: pointer; display: block; }
+
+/* ----- Main (Hero Section) Styles ----- */
+.homepg-main { height: calc(100vh - 70px); min-height: 550px; background-image: url('/public/images/farm-background.png'); background-size: cover; background-position: center center; position: relative; display: flex; justify-content: center; align-items: center; text-align: center; padding: 20px; color: white; }
+.homepg-main::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.45); z-index: 1; }
+.homepg-overlay { position: relative; z-index: 2; max-width: 750px; display: flex; flex-direction: column; align-items: center; }
+.homepg-overlay h1 { font-size: 4rem; font-weight: 700; margin-bottom: 15px; line-height: 1.2; }
+.homepg-overlay h1 .homepg-highlight { color: #4CAF50; }
+.homepg-overlay p { font-size: 1.2rem; margin-bottom: 35px; line-height: 1.7; max-width: 600px; }
+.homepg-shop-button { background-color: #4CAF50; color: white; border: none; padding: 15px 45px; border-radius: 30px; font-size: 1.1rem; font-weight: bold; cursor: pointer; margin-bottom: 35px; transition: background-color 0.3s ease, transform 0.2s ease; }
+.homepg-shop-button:hover { background-color: #45a049; transform: scale(1.05); }
+.homepg-store-buttons img { height: 45px; margin: 0 10px; transition: transform 0.2s ease; }
+.homepg-store-buttons img:hover { transform: scale(1.05); }
+
+/* ----- Trending Indicator (Divider between Hero and Products) ----- */
+.homepg-trending-indicator { position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); z-index: 5; background-color: #ffffff; color: #333; border-radius: 40px; padding: 12px 30px; box-shadow: 0 0px 15px rgba(0, 0, 0, 0.15); display: flex; align-items: center; gap: 12px; white-space: nowrap; }
+.homepg-indicator-icon { font-size: 1.8rem; color: #333; }
+.homepg-indicator-text { color: #4CAF50; font-weight: 700; font-size: 1.1rem; line-height: 1.3; text-align: center; }
+
+/* ----- Trending Products Section Styles ----- */
+.homepg-trending-products-section { padding: 70px 40px 40px 40px; background-color: #ffffff; max-width: 1200px; margin: 0 auto; }
+.homepg-products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+
+/* ----- Product Card Styles ----- */
+.homepg-product-card { background-color: #ffffff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); overflow: hidden; transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; display: flex; flex-direction: column; height: 100%; }
+.homepg-product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12); }
+.homepg-product-image { width: 100%; height: 150px; object-fit: cover; display: block; }
+.homepg-product-info { padding: 15px; display: flex; flex-direction: column; flex-grow: 1; text-align: right; }
+.homepg-product-name-category { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+.homepg-product-name { font-size: 1.1rem; font-weight: 700; color: #333; margin: 0; }
+.homepg-product-category { font-size: 0.8rem; color: #777; background-color: #f0f0f0; padding: 2px 6px; border-radius: 4px; }
+.homepg-product-price { font-size: 1rem; font-weight: 700; color: #444; margin: 0 0 10px 0; }
+.homepg-product-rating { margin-top: auto; display: flex; justify-content: flex-end; direction: ltr; }
+.homepg-star { font-size: 1.1rem; margin: 0 1px; }
+.homepg-star.homepg-filled { color: #f5c518; }
+.homepg-star.homepg-empty { color: #d0d0d0; }
+
+/* ----- Call To Action (CTA) Section Styles ----- */
+.homepg-cta-section { position: relative; padding: 100px 20px; min-height: 350px; background-image: url('/public/images/sec3_background.png'); background-size: cover; background-position: center center; background-repeat: no-repeat; display: flex; justify-content: center; align-items: center; text-align: center; }
+.homepg-cta-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.6); z-index: 1; }
+.homepg-cta-content { position: relative; z-index: 2; }
+.homepg-cta-button { background-color: #4CAF50; color: white; border: none; padding: 18px 50px; border-radius: 8px; font-size: 1.6rem; font-weight: bold; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; }
+.homepg-cta-button:hover { background-color: #56c05a; transform: scale(1.05); }
+
+
+/* ----- Services Section Styles ----- */
+.homepg-services-section { padding: 70px 40px 50px 40px; /* Top padding for indicator */ background-color: #ffffff; /* Or #f8f9fa */ max-width: 1100px; margin: 0 auto; }
+.homepg-section-title { text-align: center; font-size: 2.2rem; font-weight: 700; color: #333; margin-bottom: 50px; }
+.homepg-services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.homepg-service-card { background-color: #ffffff; border: 1px solid #e8e8e8; border-radius: 16px; padding: 35px 25px; text-align: center; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.homepg-service-card:hover { transform: translateY(-6px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); }
+.homepg-service-icon { height: 65px; width: auto; margin-bottom: 25px; }
+.homepg-service-title { font-size: 1.3rem; font-weight: 700; color: #333; margin-top: 0; margin-bottom: 10px; }
+.homepg-service-description { font-size: 0.95rem; color: #777; line-height: 1.6; margin: 0; }
+
+.homepg-service-icon {
+  height: 65px; /* أو الحجم اللي ضبطناه آخر مرة */
+  width: auto;
+  margin-bottom: 25px;
+  color: #4CAF50; /* <<< هذا هو السطر المسؤول عن اللون الأخضر */
+  /* تأكدي من عدم وجود خاصية fill أو stroke بتعمل override هنا لو فيه مشاكل */
+}
+
+/* ----- Basic Responsiveness ----- *//* ----- Global Styles & Reset ----- */
+@import url('https://fonts.homepg-googleapis.homepg-com/css2?family=Cairo:wght@400;500;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Cairo', sans-serif;
+  direction: rtl;
+  background-color: #f8f9fa; /* لون خلفية الصفحة العام */
+  box-sizing: border-box;
+  overflow-x: hidden; /* لمنع السكرول الأفقي إذا حدث */
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; }
+.homepg-container { /* Add global container styles if needed */ }
+
+/* ----- Header Styles ----- */
+.homepg-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 30px; background-color: #ffffff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); height: 70px; color: #333; }
+.homepg-header-left { display: flex; align-items: center; gap: 30px; }
+.homepg-logo { height: 38px; }
+.homepg-nav { display: flex; align-items: center; }
+.homepg-nav a { margin-left: 25px; color: #555; font-size: 16px; font-weight: 500; transition: color 0.3s ease; }
+.homepg-nav a:hover, .homepg-nav a.homepg-active-link { color: #4CAF50; }
+.homepg-nav a.homepg-active-link { font-weight: 700; }
+.homepg-header-right { display: flex; align-items: center; gap: 20px; }
+.homepg-add-button { background-color: #4CAF50; color: white; border: none; padding: 9px 18px; border-radius: 20px; font-size: 14px; font-weight: bold; transition: background-color 0.3s ease; }
+.homepg-add-button:hover { background-color: #45a049; }
+.homepg-search-box { position: relative; display: flex; align-items: center; border: 1px solid #ddd; border-radius: 20px; padding: 0 10px 0 5px; }
+.homepg-search-box input { border: none; outline: none; padding: 9px 10px 9px 35px; font-size: 14px; background: transparent; border-radius: 20px; width: 220px; }
+.homepg-search-box input::placeholder { color: #aaa; }
+.homepg-search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #777; font-size: 16px; pointer-events: none; }
+.homepg-login { color: #333; font-size: 15px; font-weight: 500; transition: color 0.3s ease; }
+.homepg-login:hover { color: #4CAF50; }
+.homepg-flag { height: 20px; width: auto; cursor: pointer; display: block; }
+
+/* ----- Main (Hero Section) Styles ----- */
+.homepg-main {
+  height: calc(100vh - 70px);
+  min-height: 550px;
+  /* --- المسار الصحيح يفترض الصورة في public/images --- */
+  background-image: url('/public/images/farm-background.png');
+  background-size: cover;
+  background-position: center center;
+  position: relative; /* Required for indicator */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  color: white;
+}
+.homepg-main::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.45); z-index: 1; }
+.homepg-overlay { position: relative; z-index: 2; max-width: 750px; display: flex; flex-direction: column; align-items: center; }
+.homepg-overlay h1 { font-size: 4rem; font-weight: 700; margin-bottom: 15px; line-height: 1.2; }
+.homepg-overlay h1 .homepg-highlight { color: #4CAF50; }
+.homepg-overlay p { font-size: 1.2rem; margin-bottom: 35px; line-height: 1.7; max-width: 600px; }
+.homepg-shop-button { background-color: #4CAF50; color: white; border: none; padding: 15px 45px; border-radius: 30px; font-size: 1.1rem; font-weight: bold; cursor: pointer; margin-bottom: 35px; transition: background-color 0.3s ease, transform 0.2s ease; }
+.homepg-shop-button:hover { background-color: #45a049; transform: scale(1.05); }
+.homepg-store-buttons img { height: 45px; margin: 0 10px; transition: transform 0.2s ease; }
+.homepg-store-buttons img:hover { transform: scale(1.05); }
+
+/* ----- Trending Indicator (Divider between Hero and Products) ----- */
+.homepg-trending-indicator { position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); z-index: 5; background-color: #ffffff; color: #333; border-radius: 40px; padding: 12px 30px; box-shadow: 0 0px 15px rgba(0, 0, 0, 0.15); display: flex; align-items: center; gap: 12px; white-space: nowrap; }
+.homepg-indicator-icon { font-size: 1.8rem; color: #333; }
+.homepg-indicator-text { color: #4CAF50; font-weight: 700; font-size: 1.1rem; line-height: 1.3; text-align: center; }
+
+/* ----- Trending Products Section Styles ----- */
+.homepg-trending-products-section { padding: 70px 40px 40px 40px; background-color: #ffffff; max-width: 1200px; margin: 0 auto; }
+.homepg-products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+
+/* ----- Product Card Styles ----- */
+.homepg-product-card { background-color: #ffffff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); overflow: hidden; transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; display: flex; flex-direction: column; height: 100%; }
+.homepg-product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12); }
+.homepg-product-image { width: 100%; height: 150px; object-fit: cover; display: block; }
+.homepg-product-info { padding: 15px; display: flex; flex-direction: column; flex-grow: 1; text-align: right; }
+.homepg-product-name-category { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+.homepg-product-name { font-size: 1.1rem; font-weight: 700; color: #333; margin: 0; }
+.homepg-product-category { font-size: 0.8rem; color: #777; background-color: #f0f0f0; padding: 2px 6px; border-radius: 4px; }
+.homepg-product-price { font-size: 1rem; font-weight: 700; color: #444; margin: 0 0 10px 0; }
+.homepg-product-rating { margin-top: auto; display: flex; justify-content: flex-end; direction: ltr; }
+.homepg-star { font-size: 1.1rem; margin: 0 1px; }
+.homepg-star.homepg-filled { color: #f5c518; }
+.homepg-star.homepg-empty { color: #d0d0d0; }
+
+/* ----- Call To Action (CTA) Section Styles ----- */
+.homepg-cta-section {
+  position: relative;
+  padding: 100px 20px;
+  min-height: 350px;
+
+  background-image: url('/public/images/sec3_background.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.homepg-cta-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.6); z-index: 1; }
+.homepg-cta-content { position: relative; z-index: 2; }
+.homepg-cta-button { background-color: #4CAF50; color: white; border: none; padding: 18px 50px; border-radius: 8px; font-size: 1.6rem; font-weight: bold; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; }
+.homepg-cta-button:hover { background-color: #56c05a; transform: scale(1.05); }
+
+.homepg-services-indicator {
+  position: absolute;
+  bottom: -25px; /* Adjust overlap */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  background-color: #ffffff;
+  color: #333;
+  border-radius: 40px; /* Match other indicator style */
+  padding: 10px 30px;
+  box-shadow: 0 0px 15px rgba(0, 0, 0, 0.15);
+  font-weight: bold;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+/* ----- Services Section Styles ----- */
+.homepg-services-section {
+  padding: 70px 40px 50px 40px; /* Top padding for potential indicator */
+  background-color: #ffffff; /* Or #f8f9fa */
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.homepg-section-title { text-align: center; font-size: 2.2rem; font-weight: 700; color: #333; margin-bottom: 50px; }
+.homepg-services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.homepg-service-card { background-color: #ffffff; border: 1px solid #e8e8e8; border-radius: 16px; padding: 35px 25px; text-align: center; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.homepg-service-card:hover { transform: translateY(-6px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); }
+.homepg-service-icon { height: 65px; width: auto; margin-bottom: 25px; color: #4CAF50; /* Icon color */ }
+.homepg-service-title { font-size: 1.3rem; font-weight: 700; color: #333; margin-top: 0; margin-bottom: 10px; }
+.homepg-service-description { font-size: 0.95rem; color: #777; line-height: 1.6; margin: 0; }
+
+/* ----- Footer Styles ----- */
+.homepg-site-footer { background-color: #222624; color: #a9b3af; padding: 60px 0 0 0; font-size: 0.9rem; line-height: 1.6; }
+.homepg-footer-container { max-width: 1200px; margin: 0 auto; padding: 0 20px 40px 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; }
+.homepg-footer-column { flex: 1; min-width: 220px; }
+.homepg-footer-about .homepg-footer-logo { max-width: 180px; margin-bottom: 25px; display: block; }
+.homepg-footer-about p { margin-bottom: 25px; }
+.homepg-social-icons { display: flex; gap: 12px; }
+.homepg-social-icons a { display: inline-flex; justify-content: center; align-items: center; width: 38px; height: 38px; background-color: #393f3c; color: #a9b3af; border-radius: 50%; font-size: 1.1rem; transition: background-color 0.3s ease, color 0.3s ease; }
+.homepg-social-icons a:hover { background-color: #4CAF50; color: #ffffff; }
+.homepg-footer-column h2 { color: #ffffff; font-size: 1.4rem; font-weight: 600; margin-top: 0; margin-bottom: 30px; position: relative; padding-bottom: 10px; }
+.homepg-footer-column h2::after { content: ''; position: absolute; bottom: 0; right: 0; width: 50px; height: 3px; background-color: #4CAF50; }
+.homepg-footer-explore{ /* Optional: Add specific styles if needed */ }
+.homepg-footer-links ul { list-style: none; padding: 0; margin: 0; }
+.homepg-footer-links li { margin-bottom: 12px; }
+.homepg-footer-links a { color: #a9b3af; transition: color 0.3s ease, padding-right 0.3s ease; display: flex; align-items: center; gap: 8px; }
+.homepg-footer-links a:hover { color: #ffffff; padding-right: 5px; }
+.homepg-footer-links .homepg-link-icon { color: #4CAF50; font-size: 0.7rem; }
+.homepg-footer-contact { position: relative; padding-right: 30px; } /* Space for vertical line */
+.homepg-footer-contact::before { content: ''; position: absolute; top: 10px; bottom: 10px; right: 0; width: 1px; background-color: #393f3c; }
+.homepg-contact-item { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+.homepg-contact-icon { color: #4CAF50; font-size: 1.1rem; width: 20px; text-align: center; }
+.homepg-contact-item span { /* Default color is inherited */ }
+.homepg-subscribe-form { display: flex; margin-top: 25px; border-radius: 8px; overflow: hidden; }
+.homepg-subscribe-form input { flex-grow: 1; padding: 12px 15px; border: none; background-color: #ffffff; color: #333; font-family: inherit; font-size: 0.9rem; outline: none; border-radius: 8px 0 0 8px; }
+.homepg-subscribe-form input::placeholder{ color: #999; }
+.homepg-subscribe-form button { background-color: #4CAF50; color: #ffffff; border: none; padding: 0 18px; cursor: pointer; font-size: 1.2rem; border-radius: 0 8px 8px 0; transition: background-color 0.3s ease; display: flex; align-items: center; justify-content: center; }
+.homepg-subscribe-form button:hover { background-color: #45a049; }
+.homepg-footer-bottom { border-top: 1px solid #393f3c; padding: 20px 0; margin-top: 40px; }
+.homepg-footer-bottom-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; }
+.homepg-copyright-text { margin: 0; font-size: 0.85rem; }
+.homepg-footer-bottom-links { margin: 0; }
+.homepg-footer-bottom-links a { color: #a9b3af; margin: 0 8px; font-size: 0.85rem; transition: color 0.3s ease; }
+.homepg-footer-bottom-links a:hover { color: #ffffff; }
+
+
+/* ----- Basic Responsiveness ----- */
+@media (max-width: 992px) {
+  .homepg-header { padding: 10px 15px; height: auto; min-height: 65px; }
+  .homepg-nav { display: none; }
+  .homepg-search-box input { width: 150px; }
+  .homepg-header-right { gap: 10px; }
+  .homepg-add-button { font-size: 12px; padding: 7px 14px; }
+  .homepg-login { font-size: 14px; }
+  .homepg-overlay h1 { font-size: 2.8rem; }
+  .homepg-overlay p { font-size: 1rem; max-width: 90%; }
+  .homepg-shop-button { padding: 12px 30px; font-size: 1rem; }
+  .homepg-store-buttons img { height: 38px; }
+  .homepg-trending-indicator { padding: 10px 25px; bottom: -25px; gap: 10px;}
+  .homepg-indicator-icon { font-size: 1.6rem; }
+  .homepg-indicator-text { font-size: 1rem; }
+  .homepg-trending-products-section { padding: 60px 20px 30px 20px; }
+  .homepg-products-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  /* CTA Responsive */
+  .homepg-cta-section { padding: 80px 20px; min-height: 280px; }
+  .homepg-cta-button { padding: 15px 35px; font-size: 1.3rem; }
+  .homepg-services-indicator { padding: 8px 25px; font-size: 0.9rem; bottom: -20px; }
+  /* Services Responsive */
+  .homepg-services-section { padding: 60px 20px 40px 20px; }
+  .homepg-section-title { font-size: 2rem; margin-bottom: 40px; }
+  .homepg-services-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .homepg-service-card { padding: 30px 20px; }
+  .homepg-service-icon { height: 55px; margin-bottom: 20px; }
+  .homepg-service-title { font-size: 1.2rem; }
+  .homepg-service-description { font-size: 0.9rem; }
+  /* Footer Responsive */
+  .homepg-footer-container { gap: 30px; }
+  .homepg-footer-column { min-width: 200px; }
+  .homepg-footer-contact { padding-right: 15px; }
+  .homepg-footer-contact::before { display: none; } /* Hide vertical line */
+  .homepg-footer-column h2 { font-size: 1.3rem; margin-bottom: 25px; }
+}
+
+@media (max-width: 768px) {
+  .homepg-header { min-height: 60px; }
+  .homepg-logo { height: 30px; }
+  .homepg-search-box { display: none; }
+  .homepg-main { height: auto; min-height: 450px; padding-top: 80px; padding-bottom: 50px; }
+  .homepg-overlay h1 { font-size: 2.2rem; }
+  .homepg-overlay p { font-size: 0.95rem; }
+  .homepg-add-button { font-size: 11px; padding: 6px 10px; }
+  .homepg-trending-indicator { padding: 8px 20px; bottom: -25px; gap: 8px;}
+  .homepg-indicator-icon { font-size: 1.5rem; }
+  .homepg-indicator-text { font-size: 0.95rem; }
+  .homepg-trending-products-section { padding: 50px 15px 25px 15px; }
+  .homepg-products-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+  .homepg-product-name { font-size: 1rem; }
+  .homepg-product-price { font-size: 0.9rem; }
+  .homepg-product-category { font-size: 0.7rem; }
+  .homepg-star { font-size: 1rem; }
+  .homepg-product-image { height: 120px; }
+  /* CTA Responsive */
+  .homepg-cta-section { min-height: 280px; }
+  .homepg-cta-button { padding: 15px 35px; font-size: 1.3rem; }
+  .homepg-services-indicator { padding: 8px 25px; font-size: 0.9rem; bottom: -20px; }
+  /* Services Responsive */
+  .homepg-services-section { padding: 50px 15px 30px 15px; }
+  .homepg-section-title { font-size: 1.8rem; margin-bottom: 35px; }
+  .homepg-services-grid { grid-template-columns: 1fr; gap: 25px; }
+  .homepg-service-card { padding: 25px; }
+  /* Footer Responsive */
+  .homepg-site-footer { padding-top: 40px; }
+  .homepg-footer-container { flex-direction: column; align-items: center; text-align: center; padding-bottom: 30px; gap: 35px; }
+  .homepg-footer-column { min-width: 100%; max-width: 400px; text-align: center; }
+  .homepg-footer-about .homepg-footer-logo { margin-left: auto; margin-right: auto; }
+  .homepg-social-icons { justify-content: center; }
+  .homepg-footer-column h2::after { right: 50%; transform: translateX(50%); }
+  .homepg-footer-links ul { text-align: center; }
+  .homepg-footer-links a { justify-content: center; padding-right: 0 !important; }
+  .homepg-footer-contact { padding-right: 0; }
+  .homepg-footer-contact::before { display: none; }
+  .homepg-contact-item { justify-content: center; }
+  .homepg-subscribe-form { justify-content: center; max-width: 350px; margin-left: auto; margin-right: auto; }
+  .homepg-footer-bottom-content { flex-direction: column; gap: 15px; text-align: center;}
+  .homepg-footer-bottom-links { text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .homepg-products-grid { grid-template-columns: 1fr; gap: 20px; }
+  /* CTA Responsive */
+   .homepg-cta-section { min-height: 240px; }
+   .homepg-cta-button { padding: 12px 30px; font-size: 1.1rem; }
+   /* Services Responsive */
+   .homepg-service-card { padding: 20px; }
+   .homepg-service-icon { height: 50px; }
+   .homepg-service-title { font-size: 1.1rem; }
+   .homepg-service-description { font-size: 0.85rem; }
+   /* Footer Responsive */
+   .homepg-footer-column h2 { font-size: 1.2rem; }
+   .homepg-social-icons a { width: 35px; height: 35px; font-size: 1rem; }
+   .homepg-subscribe-form input { padding: 10px 12px; }
+   .homepg-subscribe-form button { padding: 0 15px; font-size: 1.1rem; }
+   .homepg-copyright-text, .homepg-footer-bottom-links a { font-size: 0.8rem; }
+}
+@media (max-width: 992px) {
+  .homepg-header { padding: 10px 15px; height: auto; min-height: 65px; }
+  .homepg-nav { display: none; }
+  .homepg-search-box input { width: 150px; }
+  .homepg-header-right { gap: 10px; }
+  .homepg-add-button { font-size: 12px; padding: 7px 14px; }
+  .homepg-login { font-size: 14px; }
+  .homepg-overlay h1 { font-size: 2.8rem; }
+  .homepg-overlay p { font-size: 1rem; max-width: 90%; }
+  .homepg-shop-button { padding: 12px 30px; font-size: 1rem; }
+  .homepg-store-buttons img { height: 38px; }
+  .homepg-trending-indicator { padding: 10px 25px; bottom: -25px; gap: 10px;}
+  .homepg-indicator-icon { font-size: 1.6rem; }
+  .homepg-indicator-text { font-size: 1rem; }
+  .homepg-trending-products-section { padding: 60px 20px 30px 20px; }
+  .homepg-products-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  /* CTA Responsive */
+  .homepg-cta-section { padding: 80px 20px; min-height: 280px; }
+  .homepg-cta-button { padding: 15px 35px; font-size: 1.3rem; }
+  .homepg-services-indicator { padding: 8px 25px; font-size: 0.9rem; bottom: -20px; }
+  /* Services Responsive */
+  .homepg-services-section { padding: 60px 20px 40px 20px; }
+  .homepg-section-title { font-size: 2rem; margin-bottom: 40px; }
+  .homepg-services-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .homepg-service-card { padding: 30px 20px; }
+  .homepg-service-icon { height: 55px; margin-bottom: 20px; }
+  .homepg-service-title { font-size: 1.2rem; }
+  .homepg-service-description { font-size: 0.9rem; }
+}
+
+@media (max-width: 768px) {
+  .homepg-header { min-height: 60px; }
+  .homepg-logo { height: 30px; }
+  .homepg-search-box { display: none; }
+  .homepg-main { height: auto; min-height: 450px; padding-top: 80px; padding-bottom: 50px; }
+  .homepg-overlay h1 { font-size: 2.2rem; }
+  .homepg-overlay p { font-size: 0.95rem; }
+  .homepg-add-button { font-size: 11px; padding: 6px 10px; }
+  .homepg-trending-indicator { padding: 8px 20px; bottom: -25px; gap: 8px;}
+  .homepg-indicator-icon { font-size: 1.5rem; }
+  .homepg-indicator-text { font-size: 0.95rem; }
+  .homepg-trending-products-section { padding: 50px 15px 25px 15px; }
+  .homepg-products-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+  .homepg-product-name { font-size: 1rem; }
+  .homepg-product-price { font-size: 0.9rem; }
+  .homepg-product-category { font-size: 0.7rem; }
+  .homepg-star { font-size: 1rem; }
+  .homepg-product-image { height: 120px; }
+  /* CTA Responsive */
+  .homepg-cta-section { min-height: 280px; }
+  .homepg-cta-button { padding: 15px 35px; font-size: 1.3rem; }
+  .homepg-services-indicator { padding: 8px 25px; font-size: 0.9rem; bottom: -20px; }
+  /* Services Responsive */
+  .homepg-services-section { padding: 50px 15px 30px 15px; }
+  .homepg-section-title { font-size: 1.8rem; margin-bottom: 35px; }
+  .homepg-services-grid { grid-template-columns: 1fr; gap: 25px; } /* عمود واحد */
+  .homepg-service-card { padding: 25px; }
+}
+
+@media (max-width: 480px) {
+  .homepg-products-grid { grid-template-columns: 1fr; gap: 20px; }
+  /* CTA Responsive */
+   .homepg-cta-section { min-height: 240px; }
+   .homepg-cta-button { padding: 12px 30px; font-size: 1.1rem; }
+   /* Services Responsive */
+   .homepg-service-card { padding: 20px; } /* تقليل البادينج أكثر */
+   .homepg-service-icon { height: 50px; }
+   .homepg-service-title { font-size: 1.1rem; }
+   .homepg-service-description { font-size: 0.85rem; }
+} 
+

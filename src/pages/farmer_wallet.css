@@ -1,0 +1,72 @@
+.farmer-wallet-page {
+    font-family: 'Cairo', sans-serif;
+    padding: 30px;
+    background-color: #f9fdfb;
+    color: #333;
+}
+
+.farmer-wallet-header h2 {
+    font-size: 28px;
+    color: #2e7d32;
+}
+
+.farmer-wallet-header p {
+    margin-top: 4px;
+    color: #666;
+}
+
+.farmer-wallet-balance {
+    margin: 20px 0;
+    background-color: #e8f5e9;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.farmer-wallet-balance .amount {
+    font-size: 26px;
+    color: #1b5e20;
+    font-weight: bold;
+}
+
+.farmer-wallet-summary {
+    display: flex;
+    justify-content: space-around;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.05);
+}
+
+.farmer-wallet-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.farmer-wallet-table th,
+.farmer-wallet-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.farmer-wallet-transfer {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.farmer-wallet-transfer button {
+    background-color: #2e7d32;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.farmer-wallet-transfer button:hover {
+    background-color: #1b5e20;
+}

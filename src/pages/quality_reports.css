@@ -1,0 +1,81 @@
+.reports-container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  .reports-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .reports-header input {
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    min-width: 220px;
+  }
+  
+  .reports-table-wrapper {
+    overflow-x: auto;
+  }
+  
+  .reports-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+  }
+  
+  .reports-table th, .reports-table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .crop-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  /* الحالة */
+  .status {
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-weight: bold;
+  }
+  
+  .status.accepted {
+    background-color: #e0f6e9;
+    color: #2e7d32;
+  }
+  
+  .status.rejected {
+    background-color: #fdecea;
+    color: #d32f2f;
+  }
+  
+  .status.pending {
+    background-color: #fff8e1;
+    color: #f9a825;
+  }
+  
+  .view-btn {
+    padding: 6px 14px;
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  
+  .view-btn:hover {
+    background-color: #1976d2;
+  }
+  

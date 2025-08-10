@@ -1,0 +1,62 @@
+/* ----- Trending Products Section Styles ----- */
+.trending-products-section {
+    padding: 80px 40px 40px 40px; /* مساحة داخلية: فوق (كتير عشان المؤشر), يمين/يسار, تحت */
+    background-color: #ffffff; /* أو لون خلفية فاتح لو الصفحة كلها مش بيضاء */
+    max-width: 1200px; /* أقصى عرض للجريد */
+    margin: 0 auto; /* توسيط السكشن في الصفحة */
+  }
+  
+  /* (اختياري) لو هتضيفي عنوان للسكشن ده */
+  .section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 40px;
+    font-weight: 700;
+  }
+  
+  .products-grid {
+    display: grid;
+    /* تحديد 4 أعمدة متساوية المساحة على الشاشات الكبيرة */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px; /* المسافة بين الكروت */
+  }
+  
+  /* --- Responsive Grid --- */
+  
+  /* شاشات أصغر قليلاً (مثل التابلت) - 3 أعمدة */
+  @media (max-width: 992px) {
+    .trending-products-section {
+      padding: 60px 20px 30px 20px;
+    }
+    .products-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+  }
+  
+  /* شاشات الموبايل - عمودين */
+  @media (max-width: 768px) {
+    .trending-products-section {
+      padding: 50px 15px 25px 15px;
+    }
+    .products-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+     /* تعديل حجم الخطوط داخل الكارت للموبايل (في ProductCard.css أفضل) */
+    .product-name { font-size: 1rem; }
+    .product-price { font-size: 0.9rem; }
+    .product-category { font-size: 0.7rem; }
+    .star { font-size: 1rem; }
+    .product-image { height: 120px; } /* تصغير الصورة */
+  
+  }
+  
+  /* شاشات صغيرة جداً - عمود واحد */
+  @media (max-width: 480px) {
+    .products-grid {
+      grid-template-columns: 1fr; /* عمود واحد */
+      gap: 20px; /* مسافة أكبر قليلاً في حالة العمود الواحد */
+    }
+  }
