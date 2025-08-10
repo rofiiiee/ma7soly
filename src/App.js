@@ -29,7 +29,7 @@ import DriverSuggestion from './pages/DriverSuggestion';
 import ShippingDetails from './pages/transporter_requist';
 import TransportOffers from './pages/transport_offers';
 import DriverOffers from './pages/DriverOffers';
-import 'leaflet/dist/leaflet.css';
+
 import QualityCheck from './pages/QualityCheck';
 // import Notifications from './pages/Notifications';
 //  import ProductDetails from './pages/ProductDetails';
